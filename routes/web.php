@@ -16,3 +16,11 @@ use App\Http\Controllers\ContactController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/listar', [ContactController::class, 'index'])->name('index.form');
+
+Route::post('/cadastrar', [ContactController::class, 'store'])->name('store.form');
+
+Route::put('/atualizar/{id}', [ContactController::class, 'update'])->name('update.form');
+
+Route::delete('/deletar/{id}', [ContactController::class, 'destroy'])->name('destroy.form');
